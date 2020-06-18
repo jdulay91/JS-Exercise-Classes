@@ -100,9 +100,8 @@ class Car {
      this.odometer += distanceTravelled    
      return `"I ran out of fuel at ${this.odometer} miles!"`
   };
-
+ }
 }
-
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -115,6 +114,7 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
+
 class Lambdasian {
   constructor(object){
     this.name = object.name;
@@ -151,11 +151,11 @@ class Instructor extends Lambdasian {
   }
 
   demo(subject){
-    return `Today we are learning about ${this.subject}`
+    return `Today we are learning about ${subject}`
   }
 
   grade(student,subject){
-   return `${this.student.name} receives a perfect score on ${this.subject}`
+   return `${student.name} receives a perfect score on ${subject}`
   }
 
 }
@@ -182,9 +182,19 @@ class Student extends Lambdasian{
     this.className = object.className;
     this.favSubjects = object.favSubjects;
   }
+
   listSubjects(){
     return `Loving ${this.favSubjects.join()}`  
   }
+  
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`
+  }
+
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
+  }
+
 }
 
 /*
@@ -208,11 +218,11 @@ class ProjectManager extends Instructor {
   }
 
   standUp(channel){
-    return `${this.name} announces to ${this.channel}, @channel standy times!`
+    return `${this.name} announces to ${channel}, @channel standy times!`
   }
 
   debugsCode(object,subject){
-    return `${this.name} debugs ${object.name}'s code on ${this.subject}`
+    return `${this.name} debugs ${object.name}'s code on ${subject}`
 
   }
 }
