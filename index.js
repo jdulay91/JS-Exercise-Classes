@@ -73,7 +73,7 @@ class Person {
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
     - A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+        + The `drive` method should return a string  x being `odometer`.
 */
 
 class Car {
@@ -89,8 +89,16 @@ class Car {
   };
   
   drive(distance){
-    this.odometer +=
-    this.tank -=
+    if(this.tank*this.milesPerGallon>distance){
+      this.odometer+=distance;
+      this.tank -= distance/this.milesPerGallon;
+      return `You have driven a total of ${distance} miles`
+    }else{
+     let distanceLeft = distance-(this.tank*this.milesPerGallon)
+     let distanceTravelled = this.tank*this.milesPerGallon;
+     this.tank = 0;
+     this.odometer += distanceTravelled    
+     return `"I ran out of fuel at ${this.odometer} miles!"`
   };
 
 }
